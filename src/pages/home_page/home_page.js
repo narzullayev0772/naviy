@@ -14,6 +14,7 @@ const HomePage = () => {
                 xs: "2%", sm: "10%",
             }
         }}>
+
             <About/>
             <Divider/>
             <Service/>

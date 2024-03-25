@@ -3,7 +3,9 @@ import ResumeStepper from "./resume_stepper";
 import {educationSteps, workSteps} from "../../../../utils/resume_steps";
 
 export const Resume = () => {
-    return <Box sx={{
+    return <Box
+        id={"resume"}
+        sx={{
         paddingY: "5%",
     }}>
         <Typography

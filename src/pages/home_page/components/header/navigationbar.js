@@ -1,4 +1,4 @@
-import {Link, useLocation} from "react-router-dom";
+import {useLocation} from "react-router-dom";
 import {navigations} from "../../../../utils/navigations";
 import {Box, Typography} from "@mui/joy";
 
@@ -7,15 +7,14 @@ export const NavigationBar = () => {
     return (<Box
         sx={{
             display: {
-                xs: "none",
-                md: "flex",
+                xs: "none", md: "flex",
             }, gap: "40px",
         }}
     >
         {navigations.map((e, i) => {
             const isCurrentPath = e.path === hash;
-            return (<Link
-                to={e.path}
+            return (<a
+                href={e.path}
                 key={i}
                 style={{
                     paddingBottom: isCurrentPath ? "5px" : 0,
@@ -25,7 +24,7 @@ export const NavigationBar = () => {
                 }}
             >
                 <Typography>{e.label.toUpperCase()}</Typography>
-            </Link>);
+            </a>);
         })}
     </Box>);
 };

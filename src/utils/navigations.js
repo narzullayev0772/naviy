@@ -1,5 +1,5 @@
 export const navigations = [{
-    path: "", label: "Home"
+    path: "#", label: "Home"
 }, {
     path: "#service", label: "Service"
 }, {

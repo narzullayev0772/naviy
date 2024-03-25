@@ -4,7 +4,9 @@ import {ServiceCard} from "../../../../components/service_card";
 
 
 const Service = () => {
-    return (<Box sx={{
+    return (<Box
+        id={"service"}
+        sx={{
         paddingY: "5%",
     }}>
         <Typography
@@ -30,7 +32,7 @@ const Service = () => {
                 },
             }}
         >
-            {services.map((e, i) => ServiceCard(e))}
+            {services.map((e) => ServiceCard(e))}
         </Box>
     </Box>)
 }

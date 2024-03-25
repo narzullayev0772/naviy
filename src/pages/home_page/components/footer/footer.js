@@ -3,14 +3,15 @@ import Typography from "@mui/joy/Typography";
 import {Link} from "react-router-dom";
 
 export const Footer = () => {
-    return <Box sx={{
-        paddingY: "2.5%",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        gap: "10px"
-    }}>
+    return <Box
+        sx={{
+            paddingY: "2.5%",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: "10px"
+        }}>
         <Box sx={{
             display: "flex",
             flexDirection: "row",

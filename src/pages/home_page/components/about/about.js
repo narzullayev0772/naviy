@@ -5,6 +5,7 @@ import Stats from "./stats";
 const About = () => {
     return (
         <Box
+            id={"about"}
             sx={{
                 mt: "5%",
                 display: "flex",

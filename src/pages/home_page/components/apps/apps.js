@@ -4,7 +4,9 @@ import AppCard from "../../../../components/card";
 import {AppsSharp} from "@mui/icons-material";
 
 export const Apps = () => {
-    return (<Box sx={{
+    return (<Box
+        id={"apps"}
+        sx={{
         paddingY: "5%",
     }}>
         <Typography
