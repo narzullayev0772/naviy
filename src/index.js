@@ -13,14 +13,8 @@ const router = createBrowserRouter([
     },
     {
         path: "/apps", element: <DetailPage/>
-    },
-    {
-        path: "/img", element: (<div>
-            <img src="./../assets/portfolio.png" alt="portfolio"
-                 width={"100%"}
-            />
-        </div>),
-    },]);
+    }
+    ]);
 
 const theme = extendTheme({
     colorSchemes: {

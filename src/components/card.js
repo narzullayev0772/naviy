@@ -5,8 +5,6 @@ import Card from '@mui/joy/Card';
 import CardCover from '@mui/joy/CardCover';
 import IconButton from '@mui/joy/IconButton';
 import Typography from '@mui/joy/Typography';
-import {Link} from "react-router-dom";
-import {LinkSharp} from "@mui/icons-material";
 
 export default function AppCard(app) {
     return (<Card
@@ -62,6 +60,9 @@ export default function AppCard(app) {
         <Box sx={{
             display: 'flex', justifyContent: "space-between", gap: 1, alignItems: 'center'
         }}>
+            <Typography sx={{fontSize: 'md', fontWeight: 'md'}}>
+                {app.title}
+            </Typography>
             <IconButton
                 variant={"soft"}
                 sx={{
@@ -70,19 +71,7 @@ export default function AppCard(app) {
             >
                 {app.type}
             </IconButton>
-            <Typography sx={{fontSize: 'md', fontWeight: 'md'}}>
-                {app.title}
-            </Typography>
-            <Link to={"/apps"} target={"_blank"}>
-                <IconButton
-                    variant={"soft"}
-                    sx={{
-                        borderRadius: "xl"
-                    }}
-                >
-                    <LinkSharp/>
-                </IconButton>
-            </Link>
+
         </Box>
     </Card>);
 }

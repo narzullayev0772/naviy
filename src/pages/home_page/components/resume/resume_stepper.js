@@ -43,14 +43,15 @@ export default function ResumeStepper({steps}) {
                     display: "flex", gap: "10px",
 
                 }}>
-                <Typography level="body-sm"
+                <Typography level="title-sm"
 
                 >{step.title}</Typography>
                 <Divider/>
-                <Typography level="body-md"
-                            sx={{
-                                wordBreak: "break-word"
-                            }}
+                <Typography
+                    level={"body-sm"}
+                    sx={{
+                        wordBreak: "break-word"
+                    }}
                 >{step.description}</Typography>
             </Card>
         </Step>)}
