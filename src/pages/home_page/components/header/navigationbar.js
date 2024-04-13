@@ -23,7 +23,9 @@ export const NavigationBar = () => {
                     textDecoration: "none",
                 }}
             >
-                <Typography>{e.label.toUpperCase()}</Typography>
+                <Typography
+                fontWeight={"normal"}
+                >{e.label.toUpperCase()}</Typography>
             </a>);
         })}
     </Box>);
