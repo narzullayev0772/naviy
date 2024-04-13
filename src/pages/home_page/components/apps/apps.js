@@ -1,14 +1,14 @@
-import {Box, Button, Typography} from "@mui/joy";
+import {Box, Button, Divider, Typography} from "@mui/joy";
 import {apps} from "../../../../utils/apps";
-import AppCard from "../../../../components/card";
 import {AppsSharp} from "@mui/icons-material";
+import {GridView} from "../../../../components/grid_view";
 
 export const Apps = () => {
-    return (<Box
+    return (<><Box
         id={"apps"}
         sx={{
-        paddingY: "5%",
-    }}>
+            paddingY: "5%",
+        }}>
         <Typography
             level={"h5"}
             color={"primary"}>
@@ -23,15 +23,9 @@ export const Apps = () => {
         <Box
             sx={{
                 paddingY: "5%",
-                display: "grid",
-                gap: "20px 40px",
-                gridTemplateColumns: {
-                    xs: 'repeat(2, 1fr)',
-                    xl: 'repeat(4, 1fr)',
-                }
             }}
         >
-            {apps.map(app => AppCard(app))}
+            <GridView/>
         </Box>
         <Box
             sx={{
@@ -43,5 +37,7 @@ export const Apps = () => {
                 Browse All
             </Button>
         </Box>
-    </Box>)
+    </Box>
+        <Divider/>
+    </>)
 }

@@ -1,14 +1,15 @@
-import {Box, Typography} from "@mui/joy";
+import {Box, Divider, Typography} from "@mui/joy";
 import Links from "./links";
 import Stats from "./stats";
+import {Logo3d} from "../../../../components/logo_3d";
+import {Suspense} from "react";
 
 const About = () => {
-    return (
+    return (<>
         <Box
             id={"about"}
             sx={{
-                mt: "5%",
-                display: "flex",
+                mt: "5%", display: "flex",
             }}
         >
             <Box
@@ -41,21 +42,24 @@ const About = () => {
             <Box
                 sx={{
                     display: {
-                        xs: "none",
-                        md: "flex",
-                    },
-                    flex: 1, justifyContent: "center", alignItems: "center",
+                        xs: "none", md: "flex",
+                    }, flex: 1, justifyContent: "center", alignItems: "center",
                 }}
             >
-                <img
-                    src={"/assets/logo.svg"}
-                    alt={"logo"}
-                    width={"60%"}
-                />
-            </Box>
 
+                <Suspense
+                    fallback={<img
+                        src={"/assets/logo.svg"}
+                        alt={"logo"}
+                        width={"60%"}
+                    />}
+                >
+                    <Logo3d/>
+                </Suspense>
+            </Box>
         </Box>
-    );
+        <Divider/>
+    </>);
 };
 
 export default About;

@@ -6,4 +6,6 @@ export const navigations = [{
     path: "#apps", label: "Apps"
 }, {
     path: "#resume", label: "Resume"
+}, {
+    path: "#contact", label: "Contact"
 }];

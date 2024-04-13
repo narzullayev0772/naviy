@@ -7,21 +7,18 @@ import {CssVarsProvider} from "@mui/joy/styles";
 import {CssBaseline, extendTheme} from "@mui/joy";
 import DetailPage from "./pages/detail_page/detail_page";
 
-const router = createBrowserRouter([
-    {
-        path: "/", element: <App/>
-    },
-    {
-        path: "/apps", element: <DetailPage/>
-    }
-    ]);
+const router = createBrowserRouter([{
+    path: "/", element: <App/>
+}, {
+    path: "/apps", element: <DetailPage/>
+}]);
 
 const theme = extendTheme({
     colorSchemes: {
         dark: {
             palette: {
                 background: {
-                    body: "#282828"
+                    body: "#000",
                 }
             }
         },
