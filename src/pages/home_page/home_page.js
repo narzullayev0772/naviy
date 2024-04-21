@@ -46,7 +46,8 @@ export default function HomePage() {
             sx={{
                 paddingX: {
                     xs: "2%", sm: "10%",
-                }
+                },
+                background:"black"
             }}>
             {pages.map((e, i) => {
                 return <Section key={i}>

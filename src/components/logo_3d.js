@@ -1,11 +1,17 @@
 import {Canvas, useFrame} from '@react-three/fiber'
 import {useRef, useState} from "react";
-import {motion} from "framer-motion"
+import * as THREE from "three";
+import {Trail} from "@react-three/drei";
 
 export const Logo3d = () => {
-    const [animate, setAnimate] = useState(false);
+    const [point, setPoint] = useState({x: 0, y: 0});
     return <Canvas
-        onClick={() => setAnimate(true)}
+        onClick={(event) => {
+            event.stopPropagation();
+            setPoint({
+                x: event.clientX, y: event.clientY
+            });
+        }}
     >
         <ambientLight intensity={Math.PI / 2}/>
         <spotLight position={[10, 10, 10]} penumbra={1} decay={0} intensity={Math.PI}/>
@@ -13,75 +19,51 @@ export const Logo3d = () => {
         <Box
             position={[-0.5, 0, 1]} color={"blue"}
             rotation={[3 * Math.PI / 4, Math.PI / 4, 0]}
-            animate={animate}
+            point={point}
         />
         <Box
             position={[0.5, 0.6, 1]} color={"red"}
             rotation={[Math.PI / 4, Math.PI / 4, 0]}
-            animate={animate}
+            point={point}
         />
+        <Electron position={[0, 0, 0]} rotation={[0, 0, 0]} speed={6}/>
+        <Electron position={[0, 0, 0.5]} rotation={[0, Math.PI / 3, 0]} speed={6}/>
+        <Electron position={[0, 0, 0.5]} rotation={[0, -Math.PI / 3, 0]} speed={6}/>
     </Canvas>;
 }
 
 function Box(props) {
-    const [hover, setHover] = useState(false);
+    useFrame((state, delta, frame) => {
+        ref.current.rotation.x += 0.025;
+    });
 
     const ref = useRef();
-    useFrame((state, delta, _) => {
-        if (ref.current) {
-            ref.current.rotation.y += delta;
-        }
-    });
+    const [hovered, setHovered] = useState(false);
     return (<mesh
         {...props}
-        ref={hover ? ref : null}
-        onPointerEnter={(e) => {
-            e.stopPropagation();
-            setHover(true)
-        }}
-        onPointerOut={(e) => {
-            e.stopPropagation();
-            setHover(false);
-            ref.current.rotation.y = Math.PI / 4;
-        }}
+        ref={ref}
+        scale={hovered ? 1.2 : 1}
+        onPointerOver={() => setHovered(true)}
+        onPointerOut={() => setHovered(false)}
     >
         <tetrahedronGeometry/>
         <meshStandardMaterial color={props.color}/>
     </mesh>)
 }
 
+function Electron({radius = 3, speed = 6, ...props}) {
+    const ref = useRef()
+    useFrame((state) => {
+        const t = state.clock.getElapsedTime() * speed
+        ref.current.position.set(Math.sin(t) * radius, (Math.cos(t) * radius * Math.atan(t)) / Math.PI, 0)
+    });
+    return (<group        {...props}    >
+        <Trail local width={1} length={7} color={new THREE.Color(2, 1, 10)} attenuation={(t) => t * t}>
+            <mesh ref={ref}>
+                <meshBasicMaterial color={[10, 1, 10]} toneMapped={false}/>
+            </mesh>
+        </Trail>
+    </group>)
+}
 
-const icon = {
-    hidden: {
-        opacity: 0,
-        pathLength: 0,
-        fill: "rgba(255, 255, 255, 0)"
-    },
-    visible: {
-        opacity: 1,
-        pathLength: 1,
-        fill: "rgba(255, 255, 255, 1)"
-    }
-};
-
-export const Example = () => (
-    <div className="container">
-        <motion.svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 100 100"
-            className="item"
-        >
-            <motion.path
-                d="M0 100V0l50 50 50-50v100L75 75l-25 25-25-25z"
-                variants={icon}
-                initial="hidden"
-                animate="visible"
-                transition={{
-                    default: {duration: 2, ease: "easeInOut"},
-                    fill: {duration: 2, ease: [1, 0, 0.8, 1]}
-                }}
-            />
-        </motion.svg>
-    </div>
-);
 

@@ -1,4 +1,4 @@
-import { Sheet, styled} from "@mui/joy";
+import {Sheet, styled} from "@mui/joy";
 import Box from "@mui/joy/Box";
 
 const Item = styled(Sheet)(({theme}) => ({
@@ -12,17 +12,24 @@ const Item = styled(Sheet)(({theme}) => ({
 export function GridView() {
     return <Box
         sx={{
-            display: "grid",
-            gap:"10px",
-            gridTemplateAreas:
-                "x x y" +
-                "x x y"
+            display: "grid", gap: "10px", gridTemplateColumns: "repeat(3,1fr)",
         }}
     >
         <Item>1</Item>
-        <Item>1</Item>
-        <Item>1</Item>
-        <Item>1</Item>
-        <Item>1</Item>
+        <Item>2</Item>
+        <Item
+            sx={{
+                gridRow: "1/span 2", gridColumn: "3/span 1"
+            }}
+        >3</Item>
+        <Item>4</Item>
+        <Item>5</Item>
+        <Item sx={{
+            gridRow: "3/span 2", gridColumn: "1/span 1"
+        }}>6</Item>
+        <Item>7</Item>
+        <Item>8</Item>
+        <Item>9</Item>
+        <Item>10</Item>
     </Box>
 }
