@@ -27,8 +27,6 @@ export const Logo3d = () => {
             point={point}
         />
         <Electron position={[0, 0, 0]} rotation={[0, 0, 0]} speed={6}/>
-        <Electron position={[0, 0, 0.5]} rotation={[0, Math.PI / 3, 0]} speed={6}/>
-        <Electron position={[0, 0, 0.5]} rotation={[0, -Math.PI / 3, 0]} speed={6}/>
     </Canvas>;
 }
 
@@ -54,7 +52,7 @@ function Box(props) {
 function Electron({radius = 3, speed = 6, ...props}) {
     const ref = useRef()
     useFrame((state) => {
-        const t = state.clock.getElapsedTime() * speed
+        const t = state.clock.getElapsedTime() * speed;
         ref.current.position.set(Math.sin(t) * radius, (Math.cos(t) * radius * Math.atan(t)) / Math.PI, 0)
     });
     return (<group        {...props}    >
