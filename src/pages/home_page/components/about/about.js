@@ -9,7 +9,9 @@ const About = () => {
         <Box
             id={"about"}
             sx={{
-                mt: "5%", display: "flex",
+                mt: "5%", display: "flex", flexDirection: {
+                    xs: "column-reverse", md: "row",
+                },
             }}
         >
             <Box
@@ -41,9 +43,7 @@ const About = () => {
             </Box>
             <Box
                 sx={{
-                    display: {
-                        xs: "none", md: "flex",
-                    }, flex: 1, justifyContent: "center", alignItems: "center",
+                    display: "flex", flex: 1, justifyContent: "center", alignItems: "center",
                 }}
             >
 
