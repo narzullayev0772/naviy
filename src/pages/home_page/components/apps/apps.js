@@ -25,7 +25,7 @@ export const Apps = () => {
                 paddingY: "5%",
             }}
         >
-            <GridView/>
+            <GridView apps={apps}/>
         </Box>
         <Box
             sx={{

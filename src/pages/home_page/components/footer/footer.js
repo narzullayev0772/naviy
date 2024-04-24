@@ -22,10 +22,7 @@ export const Footer = () => {
                 return <Link to={contact.url} key={i}>
                     <HoverCard>
                         <Card size={"sm"} sx={{
-                            display: "flex",
-                            flexDirection: "row",
-                            justifyContent: "center",
-                            alignItems: "center"
+                            display: "flex", flexDirection: "row", justifyContent: "center", alignItems: "center"
                         }}>
                             {contact.icon}
                             <Typography level={"body-md"}>{contact.label}</Typography>

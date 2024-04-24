@@ -1,14 +1,14 @@
 import * as React from "react";
 import * as ReactDOM from "react-dom/client";
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
-import App from "./App";
 import "./index.css"
 import {CssVarsProvider} from "@mui/joy/styles";
 import {CssBaseline, extendTheme} from "@mui/joy";
 import DetailPage from "./pages/detail_page/detail_page";
+import HomePage from "./pages/home_page/home_page";
 
 const router = createBrowserRouter([{
-    path: "/", element: <App/>
+    path: "/", element: <HomePage/>
 }, {
     path: "/apps", element: <DetailPage/>
 }]);
@@ -21,8 +21,7 @@ const theme = extendTheme({
                     body: "#000",
                 }
             }
-        },
-        light: {
+        }, light: {
             palette: {
                 background: {
                     body: "#f6f6f6"
