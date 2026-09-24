@@ -1,14 +1,14 @@
 export const stats = [
   {
     label: "Years of Experience",
-    value: "2",
+    value: "5",
   },
   {
     label: "Projects Completed",
     value: "50",
   },
   {
-    label: "Clients",
-    value: "100",
+    label: "Open-source Tools",
+    value: "4",
   }
 ];
