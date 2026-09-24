@@ -28,12 +28,13 @@ const About = () => {
                 <Typography level={"h1"}>
                     Alisher Narzullayev
                 </Typography>
-                <Typography level={"h4"}>Developer From Uzbekistan</Typography>
+                <Typography level={"h4"}>Mobile & Fullstack Engineer from Tashkent, Uzbekistan</Typography>
                 <Typography paddingY={"20px"}>
-                    lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                    eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-                    minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                    aliquip ex ea commodo consequat.
+                    I build products end to end: Flutter apps, NestJS and PostgreSQL backends, and
+                    Next.js dashboards. Lately I have been working on SaaS for education and HR, and
+                    open-source tools that help Flutter teams ship faster, like deploykit, Clean Gen
+                    and cubit_base. I care about clean architecture, spec-driven development and
+                    automating everything that can be automated.
                 </Typography>
                 <Typography paddingY={"20px"} level={"h5"} fontWeight={"bold"}>
                     FIND ME ON

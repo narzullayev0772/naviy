@@ -40,11 +40,13 @@ const Header = () => {
                 </IconButton>
                 <Button
                     size={"sm"}
+                    component={"a"}
+                    href={"mailto:alishernarzullayev7777@gmail.com"}
                     sx={{
                         borderRadius: "20px",
                     }}
                 >
-                    Download CV
+                    Hire Me
                 </Button>
             </Box>
         </Box>

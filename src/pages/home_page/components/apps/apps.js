@@ -1,7 +1,6 @@
-import {Box, Button, Divider, Typography} from "@mui/joy";
-import {apps} from "../../../../utils/apps";
-import {AppsSharp} from "@mui/icons-material";
-import {GridView} from "../../../../components/grid_view";
+import {Box, Divider, Typography} from "@mui/joy";
+import {apps, otherWorks} from "../../../../utils/apps";
+import {ChipList, GridView} from "../../../../components/grid_view";
 
 export const Apps = () => {
     return (<><Box
@@ -27,16 +26,10 @@ export const Apps = () => {
         >
             <GridView apps={apps}/>
         </Box>
-        <Box
-            sx={{
-                display: "flex", justifyContent: "center"
-            }}
-        >
-            <Button
-                startDecorator={<AppsSharp/>}>
-                Browse All
-            </Button>
-        </Box>
+        <Typography level={"h4"} paddingBottom={"16px"}>
+            Also built
+        </Typography>
+        <ChipList items={otherWorks}/>
     </Box>
         <Divider/>
     </>)
